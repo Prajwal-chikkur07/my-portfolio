@@ -322,6 +322,14 @@ h2.landing-info-h2 {
   }
 }
 
+/* On mobile, hide alternate loop text since animation is disabled */
+@media screen and (max-width: 1024px) {
+  .landing-h2-2,
+  .landing-h2-info-1 {
+    display: none !important;
+  }
+}
+
 @media screen and (min-width: 1025px) {
   .character-model {
     height: 100vh;
