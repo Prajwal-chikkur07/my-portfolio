@@ -135,3 +135,18 @@ body {
     font-size: 40px;
   }
 }
+
+/* Mobile performance optimizations */
+@media screen and (max-width: 1024px) {
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .split-line,
+  .split-h2 {
+    will-change: auto;
+  }
+  .cursor-main {
+    display: none !important;
+  }
+}

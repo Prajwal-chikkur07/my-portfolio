@@ -5,10 +5,11 @@ export function setCharTimeline(
   character: THREE.Object3D<THREE.Object3DEventMap> | null,
   camera: THREE.PerspectiveCamera
 ) {
+  const isMobile = window.innerWidth <= 1024;
   let intensity: number = 0;
   setInterval(() => {
     intensity = Math.random();
-  }, 200);
+  }, isMobile ? 500 : 200);
   const tl1 = gsap.timeline({
     scrollTrigger: {
       trigger: ".landing-section",

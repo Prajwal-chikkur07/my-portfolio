@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { smoother } from "../Navbar";
 
 export function initialFX() {
+  const isMobile = window.innerWidth <= 1024;
   document.body.style.overflowY = "auto";
   smoother.paused(false);
   document.getElementsByTagName("main")[0].classList.add("main-active");
@@ -21,14 +22,13 @@ export function initialFX() {
   );
   gsap.fromTo(
     landingText.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
+    { opacity: 0, y: isMobile ? 40 : 80 },
     {
       opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
+      duration: isMobile ? 0.8 : 1.2,
       ease: "power3.inOut",
       y: 0,
-      stagger: 0.025,
+      stagger: isMobile ? 0.015 : 0.025,
       delay: 0.3,
     }
   );
@@ -38,14 +38,13 @@ export function initialFX() {
   var landingText2 = new SplitText(".landing-h2-info", TextProps);
   gsap.fromTo(
     landingText2.chars,
-    { opacity: 0, y: 80, filter: "blur(5px)" },
+    { opacity: 0, y: isMobile ? 40 : 80 },
     {
       opacity: 1,
-      duration: 1.2,
-      filter: "blur(0px)",
+      duration: isMobile ? 0.8 : 1.2,
       ease: "power3.inOut",
       y: 0,
-      stagger: 0.025,
+      stagger: isMobile ? 0.015 : 0.025,
       delay: 0.3,
     }
   );
@@ -72,12 +71,15 @@ export function initialFX() {
     }
   );
 
-  var landingText3 = new SplitText(".landing-h2-info-1", TextProps);
-  var landingText4 = new SplitText(".landing-h2-1", TextProps);
-  var landingText5 = new SplitText(".landing-h2-2", TextProps);
+  // Skip looping text animations on mobile to reduce lag
+  if (!isMobile) {
+    var landingText3 = new SplitText(".landing-h2-info-1", TextProps);
+    var landingText4 = new SplitText(".landing-h2-1", TextProps);
+    var landingText5 = new SplitText(".landing-h2-2", TextProps);
 
-  LoopText(landingText2, landingText3);
-  LoopText(landingText4, landingText5);
+    LoopText(landingText2, landingText3);
+    LoopText(landingText4, landingText5);
+  }
 }
 
 function LoopText(Text1: SplitText, Text2: SplitText) {

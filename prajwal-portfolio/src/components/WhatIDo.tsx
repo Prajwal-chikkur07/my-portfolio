@@ -92,8 +92,6 @@ const WhatIDo = () => {
                 <div className="what-tags">React Native</div>
                 <div className="what-tags">HTML</div>
                 <div className="what-tags">CSS</div>
-                <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">MySQL</div>
               </div>
               <div className="what-arrow"></div>
             </div>

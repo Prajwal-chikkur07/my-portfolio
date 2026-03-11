@@ -5,6 +5,9 @@ import gsap from "gsap";
 const Cursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    // Disable custom cursor on mobile/touch devices
+    if (window.innerWidth <= 1024 || "ontouchstart" in window) return;
+
     let hover = false;
     const cursor = cursorRef.current!;
     const mousePos = { x: 0, y: 0 };
