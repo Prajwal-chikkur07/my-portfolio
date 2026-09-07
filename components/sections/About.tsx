@@ -8,7 +8,7 @@ export default function About() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="scroll-mt-24 pb-24 pt-14 sm:pb-28 sm:pt-16 lg:pb-36 lg:pt-20"
+      className="pb-14 pt-12 sm:pb-16 sm:pt-14 lg:pb-20 lg:pt-16"
     >
       <div className="shell">
         <div className="grid gap-x-12 gap-y-10 lg:grid-cols-12">

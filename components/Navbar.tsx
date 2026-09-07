@@ -81,7 +81,7 @@ export default function Navbar() {
             href="#home"
             className="group relative shrink-0 font-display text-title font-semibold tracking-[-0.03em] text-ink"
           >
-            Prajwal
+            Prajwal Chikkur
             <span className="text-teal">.</span>
             <span
               aria-hidden="true"

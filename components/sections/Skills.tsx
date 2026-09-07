@@ -24,7 +24,7 @@ export default function Skills() {
     <section
       id="skills"
       aria-labelledby="skills-heading"
-      className="scroll-mt-24 pb-24 pt-14 sm:pb-28 sm:pt-16 lg:pb-32 lg:pt-20"
+      className="pb-14 pt-12 sm:pb-16 sm:pt-14 lg:pb-20 lg:pt-16"
     >
       <div className="shell">
         <SectionHeader
