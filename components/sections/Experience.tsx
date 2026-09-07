@@ -19,7 +19,7 @@ export default function Experience() {
     <section
       id="experience"
       aria-labelledby="experience-heading"
-      className="relative border-t border-ink/[0.07] bg-cream-100/50 py-24 sm:py-28 lg:py-32"
+      className="relative scroll-mt-24 border-t border-ink/[0.07] bg-cream-100/50 pb-24 pt-14 sm:pb-28 sm:pt-16 lg:pb-32 lg:pt-20"
     >
       <div className="shell">
         <SectionHeader

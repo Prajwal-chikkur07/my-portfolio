@@ -23,7 +23,11 @@ export default function Projects() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="py-24 sm:py-28 lg:py-32">
+    <section
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="scroll-mt-24 pb-24 pt-14 sm:pb-28 sm:pt-16 lg:pb-32 lg:pt-20"
+    >
       <div className="shell">
         <SectionHeader
           eyebrow="Selected work"

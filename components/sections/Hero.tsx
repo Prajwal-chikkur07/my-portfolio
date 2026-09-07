@@ -34,7 +34,7 @@ export default function Hero() {
       ref={sectionRef}
       id="home"
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden pt-24 pb-14 sm:pt-28"
+      className="relative scroll-mt-24 overflow-hidden pt-24 pb-14 sm:pt-28"
     >
       {/* Ambient wash — breathes gently on every device */}
       <motion.div

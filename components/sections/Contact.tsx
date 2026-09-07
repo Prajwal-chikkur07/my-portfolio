@@ -31,7 +31,7 @@ export default function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative overflow-hidden border-t border-ink/[0.07] bg-cream-100/60 py-28 sm:py-32 lg:py-40"
+      className="relative scroll-mt-24 overflow-hidden border-t border-ink/[0.07] bg-cream-100/60 pb-28 pt-16 sm:pb-32 sm:pt-20 lg:pb-40 lg:pt-24"
     >
       <div
         aria-hidden="true"

@@ -5,7 +5,11 @@ import { MapPin } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="py-24 sm:py-28 lg:py-36">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="scroll-mt-24 pb-24 pt-14 sm:pb-28 sm:pt-16 lg:pb-36 lg:pt-20"
+    >
       <div className="shell">
         <div className="grid gap-x-12 gap-y-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
