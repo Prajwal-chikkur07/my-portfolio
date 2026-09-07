@@ -9,7 +9,7 @@ export const contentType = "image/png";
 
 export default async function OpengraphImage() {
   const portrait = readFileSync(
-    join(process.cwd(), "public", "avatar", "pose-0.png"),
+    join(process.cwd(), "public", "prajwal-hero.png"),
   ).toString("base64");
 
   return new ImageResponse(

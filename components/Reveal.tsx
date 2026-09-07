@@ -12,7 +12,7 @@ export function Reveal({
   as = "div",
   delay = 0,
   y = 26,
-  amount = 0.25,
+  amount = "some",
   stagger = 0,
 }: {
   children: ReactNode;
@@ -20,7 +20,13 @@ export function Reveal({
   as?: ElementType;
   delay?: number;
   y?: number;
-  amount?: number;
+  /**
+   * Fraction of the target that must be visible to trigger, or "some"/"all".
+   * A fixed ratio is unreachable for containers taller than the viewport
+   * (e.g. long stacked lists on mobile), so callers wrapping tall content
+   * should stick with the "some" default rather than passing a number.
+   */
+  amount?: number | "some" | "all";
   stagger?: number;
 }) {
   const reduce = useReducedMotion();
