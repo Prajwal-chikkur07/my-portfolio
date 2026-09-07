@@ -1,26 +1,162 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ---- Palette: warm ivory / deep navy / teal / gold ---- */
+  --color-cream: #fbf8f1;
+  --color-cream-100: #f6f1e6;
+  --color-cream-200: #efe8d9;
+  --color-cream-300: #e4dac6;
+  /* Matches the avatar sprite backdrop so the frame edge is invisible */
+  --color-plate: #fcfbf9;
+
+  --color-ink: #14293a;
+  --color-ink-700: #2d4657;
+  --color-ink-500: #5a7183;
+  --color-ink-300: #93a5b1;
+
+  --color-teal: #10695c;
+  --color-teal-700: #0b4c43;
+  --color-teal-400: #2f9382;
+  --color-teal-200: #a9d3ca;
+  --color-teal-50: #e8f2ef;
+
+  --color-gold: #e5a01b;
+  --color-gold-400: #f0b743;
+  --color-gold-200: #f7dda6;
+  --color-gold-50: #fdf5e5;
+
+  /* ---- Type ---- */
+  --font-display: var(--font-display-face), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans-face), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, SFMono-Regular, monospace;
+
+  /*
+   * A single 10-step scale. Every text style in the app maps onto one of
+   * these — no arbitrary sizes — and nothing sits below 12px.
+   */
+  --text-micro: 0.75rem;        /* 12px — mono labels, chips, tags */
+  --text-micro--line-height: 1.45;
+
+  --text-label: 0.8125rem;      /* 13px — secondary labels */
+  --text-label--line-height: 1.5;
+
+  --text-small: 0.875rem;       /* 14px — small copy, list items */
+  --text-small--line-height: 1.65;
+
+  --text-body: 1rem;            /* 16px — body copy */
+  --text-body--line-height: 1.7;
+
+  --text-lead: 1.125rem;        /* 18px — lead paragraphs */
+  --text-lead--line-height: 1.6;
+
+  --text-title: 1.375rem;       /* 22px — card titles */
+  --text-title--line-height: 1.25;
+
+  --text-head: 1.875rem;        /* 30px — project & company names, stat numbers */
+  --text-head--line-height: 1.15;
+
+  --text-eyebrow: 0.75rem;      /* shares the 12px step */
+  --text-eyebrow--line-height: 1.1;
+  --text-eyebrow--letter-spacing: 0.2em;
+
+  --text-stat: clamp(2rem, 4.4vw, 3rem);
+  --text-stat--line-height: 1;
+  --text-stat--letter-spacing: -0.03em;
+
+  --text-section: clamp(2rem, 5.2vw, 3.5rem);
+  --text-section--line-height: 1.04;
+  --text-section--letter-spacing: -0.025em;
+
+  --text-hero: clamp(2.3rem, 5.2vw, 4.5rem);
+  --text-hero--line-height: 1;
+  --text-hero--letter-spacing: -0.03em;
+
+  /* ---- Radii ---- */
+  --radius-card: 22px;
+  --radius-panel: 28px;
+  --radius-chip: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-soft: 0 1px 2px rgba(20, 41, 58, 0.04), 0 10px 30px -12px rgba(20, 41, 58, 0.1);
+  --shadow-lift: 0 2px 4px rgba(20, 41, 58, 0.05), 0 24px 50px -20px rgba(20, 41, 58, 0.18);
+  --shadow-float: 0 1px 2px rgba(20, 41, 58, 0.05), 0 14px 34px -14px rgba(20, 41, 58, 0.16);
+
+  /* ---- Motion ---- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset for the sticky navbar when jumping to #anchors */
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-teal);
+    color: var(--color-cream);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.shell {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 48rem) { .shell { padding-inline: 2.5rem; } }
+@media (min-width: 80rem) { .shell { padding-inline: 3.5rem; } }
+
+/* Fine grain paper texture — above the background, below content */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee { animation: marquee-scroll 40s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none !important; }
 }
